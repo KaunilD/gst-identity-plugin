@@ -44,14 +44,14 @@
  */
 
 /**
- * SECTION:element-identity
+ * SECTION:element-oclrgb2gray
  *
- * FIXME:Describe identity here.
+ * FIXME:Describe oclrgb2gray here.
  *
  * <refsect2>
  * <title>Example launch line</title>
  * |[
- * gst-launch -v -m fakesrc ! identity ! fakesink silent=TRUE
+ * gst-launch -v -m fakesrc ! oclrgb2gray ! fakesink silent=TRUE
  * ]|
  * </refsect2>
  */
@@ -62,10 +62,10 @@
 
 #include <gst/gst.h>
 
-#include "gstidentity.h"
+#include "gstoclrgb2gray.h"
 
-GST_DEBUG_CATEGORY_STATIC (gst_identity_debug);
-#define GST_CAT_DEFAULT gst_identity_debug
+GST_DEBUG_CATEGORY_STATIC (gst_ocl_rgb2gray_debug);
+#define GST_CAT_DEFAULT gst_ocl_rgb2gray_debug
 
 /* Filter signals and args */
 enum
@@ -96,24 +96,25 @@ static GstStaticPadTemplate src_factory = GST_STATIC_PAD_TEMPLATE ("src",
     GST_STATIC_CAPS ("ANY")
     );
 
-#define gst_identity_parent_class parent_class
-G_DEFINE_TYPE (GstIdentity, gst_identity, GST_TYPE_ELEMENT);
+#define gst_ocl_rgb2gray_parent_class parent_class
+G_DEFINE_TYPE (GstoclRGB2GRAY, gst_ocl_rgb2gray, GST_TYPE_ELEMENT);
 
-static void gst_identity_set_property (GObject * object,
+
+static void gst_ocl_rgb2gray_set_property (GObject * object,
     guint prop_id, const GValue * value, GParamSpec * pspec);
-static void gst_identity_get_property (GObject * object,
+static void gst_ocl_rgb2gray_get_property (GObject * object,
     guint prop_id, GValue * value, GParamSpec * pspec);
 
-static gboolean gst_identity_sink_event (GstPad * pad,
+static gboolean gst_ocl_rgb2gray_sink_event (GstPad * pad,
     GstObject * parent, GstEvent * event);
-static GstFlowReturn gst_identity_chain (GstPad * pad,
+static GstFlowReturn gst_ocl_rgb2gray_chain (GstPad * pad,
     GstObject * parent, GstBuffer * buf);
 
 /* GObject vmethod implementations */
 
-/* initialize the identity's class */
+/* initialize the oclrgb2gray's class */
 static void
-gst_identity_class_init (GstIdentityClass * klass)
+gst_ocl_rgb2gray_class_init (GstoclRGB2GRAYClass * klass)
 {
   GObjectClass *gobject_class;
   GstElementClass *gstelement_class;
@@ -121,15 +122,15 @@ gst_identity_class_init (GstIdentityClass * klass)
   gobject_class = (GObjectClass *) klass;
   gstelement_class = (GstElementClass *) klass;
 
-  gobject_class->set_property = gst_identity_set_property;
-  gobject_class->get_property = gst_identity_get_property;
+  gobject_class->set_property = gst_ocl_rgb2gray_set_property;
+  gobject_class->get_property = gst_ocl_rgb2gray_get_property;
 
   g_object_class_install_property (gobject_class, PROP_SILENT,
       g_param_spec_boolean ("silent", "Silent", "Produce verbose output ?",
           FALSE, G_PARAM_READWRITE));
 
   gst_element_class_set_details_simple (gstelement_class,
-      "Identity",
+      "oclRGB2GRAY",
       "FIXME:Generic",
       "FIXME:Generic Template Element", "root <<user@hostname.org>>");
 
@@ -145,13 +146,13 @@ gst_identity_class_init (GstIdentityClass * klass)
  * initialize instance structure
  */
 static void
-gst_identity_init (GstIdentity * filter)
+gst_ocl_rgb2gray_init (GstoclRGB2GRAY * filter)
 {
   filter->sinkpad = gst_pad_new_from_static_template (&sink_factory, "sink");
   gst_pad_set_event_function (filter->sinkpad,
-      GST_DEBUG_FUNCPTR (gst_identity_sink_event));
+      GST_DEBUG_FUNCPTR (gst_ocl_rgb2gray_sink_event));
   gst_pad_set_chain_function (filter->sinkpad,
-      GST_DEBUG_FUNCPTR (gst_identity_chain));
+      GST_DEBUG_FUNCPTR (gst_ocl_rgb2gray_chain));
   GST_PAD_SET_PROXY_CAPS (filter->sinkpad);
   gst_element_add_pad (GST_ELEMENT (filter), filter->sinkpad);
 
@@ -163,10 +164,10 @@ gst_identity_init (GstIdentity * filter)
 }
 
 static void
-gst_identity_set_property (GObject * object, guint prop_id,
+gst_ocl_rgb2gray_set_property (GObject * object, guint prop_id,
     const GValue * value, GParamSpec * pspec)
 {
-  GstIdentity *filter = GST_IDENTITY (object);
+  GstoclRGB2GRAY *filter = GST_OCLRGB2GRAY (object);
 
   switch (prop_id) {
     case PROP_SILENT:
@@ -179,10 +180,10 @@ gst_identity_set_property (GObject * object, guint prop_id,
 }
 
 static void
-gst_identity_get_property (GObject * object, guint prop_id,
+gst_ocl_rgb2gray_get_property (GObject * object, guint prop_id,
     GValue * value, GParamSpec * pspec)
 {
-  GstIdentity *filter = GST_IDENTITY (object);
+  GstoclRGB2GRAY *filter = GST_OCLRGB2GRAY (object);
 
   switch (prop_id) {
     case PROP_SILENT:
@@ -198,13 +199,13 @@ gst_identity_get_property (GObject * object, guint prop_id,
 
 /* this function handles sink events */
 static gboolean
-gst_identity_sink_event (GstPad * pad, GstObject * parent,
+gst_ocl_rgb2gray_sink_event (GstPad * pad, GstObject * parent,
     GstEvent * event)
 {
-  GstIdentity *filter;
+  GstoclRGB2GRAY *filter;
   gboolean ret;
 
-  filter = GST_IDENTITY (parent);
+  filter = GST_OCLRGB2GRAY (parent);
 
   GST_LOG_OBJECT (filter, "Received %s event: %" GST_PTR_FORMAT,
       GST_EVENT_TYPE_NAME (event), event);
@@ -232,15 +233,15 @@ gst_identity_sink_event (GstPad * pad, GstObject * parent,
  * this function does the actual processing
  */
 static GstFlowReturn
-gst_identity_chain (GstPad * pad, GstObject * parent, GstBuffer * buf)
+gst_ocl_rgb2gray_chain (GstPad * pad, GstObject * parent, GstBuffer * buf)
 {
-  GstIdentity *filter;
+  GstoclRGB2GRAY *filter;
 
-  filter = GST_IDENTITY (parent);
+  filter = GST_OCLRGB2GRAY (parent);
 
   if (filter->silent == FALSE)
     g_print ("I'm plugged, therefore I'm in.\n");
-
+  
   /* just push out the incoming buffer without touching it */
   return gst_pad_push (filter->srcpad, buf);
 }
@@ -251,16 +252,20 @@ gst_identity_chain (GstPad * pad, GstObject * parent, GstBuffer * buf)
  * register the element factories and other features
  */
 static gboolean
-identity_init (GstPlugin * identity)
+oclrgb2gray_init (GstPlugin * oclrgb2gray)
 {
   /* debug category for filtering log messages
    *
-   * exchange the string 'Template identity' with your description
+   * exchange the string 'Template oclrgb2gray' with your description
    */
-  GST_DEBUG_CATEGORY_INIT (gst_identity_debug, "identity",
-      0, "Template identity");
+  GST_DEBUG_CATEGORY_INIT (gst_ocl_rgb2gray_debug, "oclrgb2gray",
+      0, "Template oclrgb2gray");
 
-  return GST_ELEMENT_REGISTER (identityPlugin, identity);
+  if (!gst_element_register (oclrgb2gray, "oclrgb2gray", GST_RANK_NONE,
+          GST_TYPE_OCLRGB2GRAY))
+    return FALSE;
+
+  return TRUE;
 }
 
 /* PACKAGE: this is usually set by meson depending on some _INIT macro
@@ -269,16 +274,16 @@ identity_init (GstPlugin * identity)
  * compile this code. GST_PLUGIN_DEFINE needs PACKAGE to be defined.
  */
 #ifndef PACKAGE
-#define PACKAGE "identityPlugin"
+#define PACKAGE "oclrgb2gray"
 #endif
 
-/* gstreamer looks for this structure to register identitys
+/* gstreamer looks for this structure to register oclrgb2grays
  *
- * exchange the string 'Template identity' with your identity description
+ * exchange the string 'Template oclrgb2gray' with your oclrgb2gray description
  */
 GST_PLUGIN_DEFINE (GST_VERSION_MAJOR,
     GST_VERSION_MINOR,
-    identity,
-    "Template identity",
-    identity_init,
-    PACKAGE_VERSION, GST_LICENSE, GST_PACKAGE_NAME, GST_PACKAGE_ORIGIN)
+    oclrgb2gray,
+    "Template oclrgb2gray",
+    oclrgb2gray_init,
+    "1.0", "LGPL", "oclrgb2gray", "http://gstreamer.net")

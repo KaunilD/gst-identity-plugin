@@ -193,6 +193,12 @@ gst-identity-example_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin
 //Dependencies for the target
 gst-identity-plugin_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
 
+//Dependencies for the target
+gst-oclrgb2gray-plugin_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+
+//Dependencies for the target
+oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+
 
 ########################
 # INTERNAL cache entries

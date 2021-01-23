@@ -1,2 +1,2 @@
 # Hashes of file build rules.
-cfec02f9835048ea4ca732bfa272d54e src/plugins/CMakeFiles/install_gst_identity_plugin
+b20e816fa14d4c65808d0f9bb7c1186e src/plugins/CMakeFiles/install_oclrgb2gray

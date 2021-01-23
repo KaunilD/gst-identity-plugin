@@ -49,6 +49,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/plugins/CMakeFiles/gst-identity-plugin.dir/DependInfo.cmake"
-  "src/plugins/CMakeFiles/install_gst_identity_plugin.dir/DependInfo.cmake"
+  "src/CMakeFiles/main.dir/DependInfo.cmake"
+  "src/plugins/CMakeFiles/oclrgb2gray.dir/DependInfo.cmake"
+  "src/plugins/CMakeFiles/install_oclrgb2gray.dir/DependInfo.cmake"
   )

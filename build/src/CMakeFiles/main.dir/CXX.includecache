@@ -6,18 +6,10 @@
 
 #IncludeRegexTransform: 
 
-/root/development/git/logitech/gst-plugin-example/src/plugins/gstidentity.cpp
-config.h
--
+/root/development/git/logitech/gst-plugin-example/src/main.cpp
 gst/gst.h
 -
-gstidentity.h
-/root/development/git/logitech/gst-plugin-example/src/plugins/gstidentity.h
-
-/root/development/git/logitech/gst-plugin-example/src/plugins/gstidentity.h
-gst/gst.h
--
-stdio.h
+glib.h
 -
 
 /usr/include/glib-2.0/glib-object.h

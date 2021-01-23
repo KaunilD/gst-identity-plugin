@@ -111,61 +111,61 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/plugins/CMakeFiles/gst-identity-plugin.dir/rule:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/plugins/CMakeFiles/gst-identity-plugin.dir/rule
-.PHONY : src/plugins/CMakeFiles/gst-identity-plugin.dir/rule
+src/plugins/CMakeFiles/oclrgb2gray.dir/rule:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/plugins/CMakeFiles/oclrgb2gray.dir/rule
+.PHONY : src/plugins/CMakeFiles/oclrgb2gray.dir/rule
 
 # Convenience name for target.
-gst-identity-plugin: src/plugins/CMakeFiles/gst-identity-plugin.dir/rule
+oclrgb2gray: src/plugins/CMakeFiles/oclrgb2gray.dir/rule
 
-.PHONY : gst-identity-plugin
+.PHONY : oclrgb2gray
 
 # fast build rule for target.
-gst-identity-plugin/fast:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/gst-identity-plugin.dir/build.make src/plugins/CMakeFiles/gst-identity-plugin.dir/build
-.PHONY : gst-identity-plugin/fast
+oclrgb2gray/fast:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/build
+.PHONY : oclrgb2gray/fast
 
 # Convenience name for target.
-src/plugins/CMakeFiles/install_gst_identity_plugin.dir/rule:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/plugins/CMakeFiles/install_gst_identity_plugin.dir/rule
-.PHONY : src/plugins/CMakeFiles/install_gst_identity_plugin.dir/rule
+src/plugins/CMakeFiles/install_oclrgb2gray.dir/rule:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/plugins/CMakeFiles/install_oclrgb2gray.dir/rule
+.PHONY : src/plugins/CMakeFiles/install_oclrgb2gray.dir/rule
 
 # Convenience name for target.
-install_gst_identity_plugin: src/plugins/CMakeFiles/install_gst_identity_plugin.dir/rule
+install_oclrgb2gray: src/plugins/CMakeFiles/install_oclrgb2gray.dir/rule
 
-.PHONY : install_gst_identity_plugin
+.PHONY : install_oclrgb2gray
 
 # fast build rule for target.
-install_gst_identity_plugin/fast:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/install_gst_identity_plugin.dir/build.make src/plugins/CMakeFiles/install_gst_identity_plugin.dir/build
-.PHONY : install_gst_identity_plugin/fast
+install_oclrgb2gray/fast:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/install_oclrgb2gray.dir/build.make src/plugins/CMakeFiles/install_oclrgb2gray.dir/build
+.PHONY : install_oclrgb2gray/fast
 
-gstidentity.o: gstidentity.cpp.o
+gstoclrgb2gray.o: gstoclrgb2gray.cpp.o
 
-.PHONY : gstidentity.o
+.PHONY : gstoclrgb2gray.o
 
 # target to build an object file
-gstidentity.cpp.o:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/gst-identity-plugin.dir/build.make src/plugins/CMakeFiles/gst-identity-plugin.dir/gstidentity.cpp.o
-.PHONY : gstidentity.cpp.o
+gstoclrgb2gray.cpp.o:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o
+.PHONY : gstoclrgb2gray.cpp.o
 
-gstidentity.i: gstidentity.cpp.i
+gstoclrgb2gray.i: gstoclrgb2gray.cpp.i
 
-.PHONY : gstidentity.i
+.PHONY : gstoclrgb2gray.i
 
 # target to preprocess a source file
-gstidentity.cpp.i:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/gst-identity-plugin.dir/build.make src/plugins/CMakeFiles/gst-identity-plugin.dir/gstidentity.cpp.i
-.PHONY : gstidentity.cpp.i
+gstoclrgb2gray.cpp.i:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.i
+.PHONY : gstoclrgb2gray.cpp.i
 
-gstidentity.s: gstidentity.cpp.s
+gstoclrgb2gray.s: gstoclrgb2gray.cpp.s
 
-.PHONY : gstidentity.s
+.PHONY : gstoclrgb2gray.s
 
 # target to generate assembly for a file
-gstidentity.cpp.s:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/gst-identity-plugin.dir/build.make src/plugins/CMakeFiles/gst-identity-plugin.dir/gstidentity.cpp.s
-.PHONY : gstidentity.cpp.s
+gstoclrgb2gray.cpp.s:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.s
+.PHONY : gstoclrgb2gray.cpp.s
 
 # Help Target
 help:
@@ -175,11 +175,11 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... gst-identity-plugin"
-	@echo "... install_gst_identity_plugin"
-	@echo "... gstidentity.o"
-	@echo "... gstidentity.i"
-	@echo "... gstidentity.s"
+	@echo "... oclrgb2gray"
+	@echo "... install_oclrgb2gray"
+	@echo "... gstoclrgb2gray.o"
+	@echo "... gstoclrgb2gray.i"
+	@echo "... gstoclrgb2gray.s"
 .PHONY : help
 
 

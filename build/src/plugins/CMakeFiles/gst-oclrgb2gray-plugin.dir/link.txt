@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libgst-oclrgb2gray-plugin.so -o ../../aarch64/lib/libgst-oclrgb2gray-plugin.so CMakeFiles/gst-oclrgb2gray-plugin.dir/gstoclrgb2gray.cpp.o -lgstapp-1.0 -lgstvideo-1.0 -lgstaudio-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 

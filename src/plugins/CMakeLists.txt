@@ -1,24 +1,24 @@
 set(SRCS_IDENTITY
-    "./gstidentity.cpp"
+    "./gstoclrgb2gray.cpp"
 )
 set(HEADERS_IDENTITY
-    "./gstidentity.h"
+    "./gstoclrgb2gray.h"
 )
 
-add_library(gst-identity-plugin SHARED ${SRCS_IDENTITY} ${HEADERS_IDENTITY})
+add_library(oclrgb2gray SHARED ${SRCS_IDENTITY} ${HEADERS_IDENTITY})
 
-target_link_libraries(gst-identity-plugin
+target_link_libraries(oclrgb2gray
   ${GSTLIBS_LIBRARIES}
 )
 
-target_include_directories(gst-identity-plugin
+target_include_directories(oclrgb2gray
   PUBLIC
   .
   ${GSTLIBS_LIBRARY_DIRS}
 )
 
-add_custom_target(install_gst_identity_plugin ALL
-    COMMAND cp ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libgst-identity-plugin.so $ENV{GST_PLUGIN_PATH}
-    DEPENDS gst-identity-plugin
+add_custom_target(install_oclrgb2gray ALL
+    COMMAND mv ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/liboclrgb2gray.so $ENV{GST_PLUGIN_PATH}
+    DEPENDS oclrgb2gray
 )
 

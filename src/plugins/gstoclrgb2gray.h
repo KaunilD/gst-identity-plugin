@@ -44,18 +44,22 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef __GST_IDENTITY_H__
-#define __GST_IDENTITY_H__
+#ifndef __GST_OCLRGB2GRAY_H__
+#define __GST_OCLRGB2GRAY_H__
 
 #include <gst/gst.h>
-
+#include <stdio.h>
 G_BEGIN_DECLS
 
-#define GST_TYPE_IDENTITY (gst_identity_get_type())
-G_DECLARE_FINAL_TYPE (GstIdentity, gst_identity,
+#define GST_TYPE_OCLRGB2GRAY (gst_ocl_rgb2gray_get_type())
+G_DECLARE_FINAL_TYPE (GstoclRGB2GRAY, gst_ocl_rgb2gray,
     GST, PLUGIN_TEMPLATE, GstElement)
 
-struct _GstIdentity
+
+#define GST_OCLRGB2GRAY(obj) \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), GST_TYPE_OCLRGB2GRAY, GstoclRGB2GRAY))
+
+struct _GstoclRGB2GRAY
 {
   GstElement element;
 
@@ -66,4 +70,4 @@ struct _GstIdentity
 
 G_END_DECLS
 
-#endif /* __GST_IDENTITY_H__ */
+#endif /* __GST_OCLRGB2GRAY_H__ */

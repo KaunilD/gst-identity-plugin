@@ -110,6 +110,48 @@ depend:
 	cd /root/development/git/logitech/gst-plugin-example/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+src/CMakeFiles/main.dir/rule:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
+.PHONY : src/CMakeFiles/main.dir/rule
+
+# Convenience name for target.
+main: src/CMakeFiles/main.dir/rule
+
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -117,7 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... main"
 	@echo "... edit_cache"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -111,30 +111,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gst-identity-plugin
+# Target rules for targets named main
 
 # Build rule for target.
-gst-identity-plugin: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gst-identity-plugin
-.PHONY : gst-identity-plugin
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-gst-identity-plugin/fast:
-	$(MAKE) -f src/plugins/CMakeFiles/gst-identity-plugin.dir/build.make src/plugins/CMakeFiles/gst-identity-plugin.dir/build
-.PHONY : gst-identity-plugin/fast
+main/fast:
+	$(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named install_gst_identity_plugin
+# Target rules for targets named oclrgb2gray
 
 # Build rule for target.
-install_gst_identity_plugin: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 install_gst_identity_plugin
-.PHONY : install_gst_identity_plugin
+oclrgb2gray: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 oclrgb2gray
+.PHONY : oclrgb2gray
 
 # fast build rule for target.
-install_gst_identity_plugin/fast:
-	$(MAKE) -f src/plugins/CMakeFiles/install_gst_identity_plugin.dir/build.make src/plugins/CMakeFiles/install_gst_identity_plugin.dir/build
-.PHONY : install_gst_identity_plugin/fast
+oclrgb2gray/fast:
+	$(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/build
+.PHONY : oclrgb2gray/fast
+
+#=============================================================================
+# Target rules for targets named install_oclrgb2gray
+
+# Build rule for target.
+install_oclrgb2gray: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 install_oclrgb2gray
+.PHONY : install_oclrgb2gray
+
+# fast build rule for target.
+install_oclrgb2gray/fast:
+	$(MAKE) -f src/plugins/CMakeFiles/install_oclrgb2gray.dir/build.make src/plugins/CMakeFiles/install_oclrgb2gray.dir/build
+.PHONY : install_oclrgb2gray/fast
 
 # Help Target
 help:
@@ -144,8 +157,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... gst-identity-plugin"
-	@echo "... install_gst_identity_plugin"
+	@echo "... main"
+	@echo "... oclrgb2gray"
+	@echo "... install_oclrgb2gray"
 .PHONY : help
 
 
