@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /root/development/git/logitech/gst-plugin-example/build
 include src/plugins/CMakeFiles/install_gst_identity_plugin.dir/progress.make
 
 src/plugins/CMakeFiles/install_gst_identity_plugin: aarch64/lib/libgst-identity-plugin.so
-	cd /root/development/git/logitech/gst-plugin-example/build/src/plugins && cp /root/development/git/logitech/gst-plugin-example/build/aarch64/lib/libgst-identity-plugin.so /usr/local/lib/gstreamer-1.0
+	cd /root/development/git/logitech/gst-plugin-example/build/src/plugins && mv /root/development/git/logitech/gst-plugin-example/build/aarch64/lib/libgst-identity-plugin.so /usr/local/lib/
 
 install_gst_identity_plugin: src/plugins/CMakeFiles/install_gst_identity_plugin
 install_gst_identity_plugin: src/plugins/CMakeFiles/install_gst_identity_plugin.dir/build.make
