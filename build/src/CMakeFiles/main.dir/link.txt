@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/main.dir/main.cpp.o  -o ../aarch64/bin/main -lgstapp-1.0 -lgstvideo-1.0 -lgstaudio-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 
+/usr/bin/c++     CMakeFiles/main.dir/main.cpp.o  -o ../aarch64/bin/main -Wl,-rpath,/root/development/git/logitech/gst-plugin-example/build/aarch64/lib -lgstapp-1.0 -lgstvideo-1.0 -lgstaudio-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 ../aarch64/lib/liboclwrapper.so /usr/lib/libOpenCL.so 

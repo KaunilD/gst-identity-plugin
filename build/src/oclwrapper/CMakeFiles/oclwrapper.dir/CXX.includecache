@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/oclwrapper/./ocl.h
+CL/cl2.hpp
+-
+sstream
+-
+fstream
+-
+memory
+-
+string
+-
+vector
+-
+stdexcept
+-
+map
+-
+cassert
+-
+
+/root/development/git/logitech/gst-plugin-example/src/oclwrapper/ocl.cpp
+ocl.h
+-
+

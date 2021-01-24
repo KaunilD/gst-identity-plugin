@@ -1,6 +1,8 @@
 #include <gst/gst.h>
 #include <glib.h>
 
+#include <memory>
+#include <oclwrapper/ocl.h>
 
 static gboolean bus_callback(GstBus *bus, GstMessage *msg, gpointer data)
 {
@@ -24,6 +26,9 @@ static gboolean bus_callback(GstBus *bus, GstMessage *msg, gpointer data)
 
 int main(int argc, char *argv[])
 {
+    OCL ocl;
+    ocl.check_platforms();
+    
     GMainLoop *loop;
     GstElement *pipeline, *source, *framefilter, *ocl_filter, *sink;
     GstBus *bus;

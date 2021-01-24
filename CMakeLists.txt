@@ -17,7 +17,10 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_OUTPUT_DIR}/lib)
 
 find_package(PkgConfig REQUIRED)
 
+# for overlaying fps counter 
 pkg_check_modules (CAIRO REQUIRED cairo)
+
+# 
 pkg_check_modules (GSTLIBS REQUIRED 
     gobject-2.0
     gstreamer-1.0>=1.14 
@@ -26,7 +29,9 @@ pkg_check_modules (GSTLIBS REQUIRED
     gstreamer-video-1.0 
     gstreamer-audio-1.0
 )
-
+find_package(OpenCL REQUIRED)
+message("-- DEBUG: Found OpenCL includes at   : ${OpenCL_INCLUDE_DIRS}")
+message("-- DEBUG: Found OpenCL libraries at  : ${OpenCL_LIBRARY}")
 
 set(CMAKE_CXX_STANDARD 11)
 #set(CMAKE_CXX_FLAGS "${pkg-config --cflags --libs gstreamer-1.0} -Wall -Werror")
@@ -46,3 +51,4 @@ include_directories(
 
 add_subdirectory("src/")
 add_subdirectory("src/plugins/")
+add_subdirectory("src/oclwrapper/")

@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /root/development/git/logitech/gst-plugin-example/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles /root/development/git/logitech/gst-plugin-example/build/src/oclwrapper/CMakeFiles/progress.marks
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/oclwrapper/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/oclwrapper/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,70 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/oclwrapper/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/oclwrapper/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /root/development/git/logitech/gst-plugin-example/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named main
+# Convenience name for target.
+src/oclwrapper/CMakeFiles/oclwrapper.dir/rule:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f CMakeFiles/Makefile2 src/oclwrapper/CMakeFiles/oclwrapper.dir/rule
+.PHONY : src/oclwrapper/CMakeFiles/oclwrapper.dir/rule
 
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+# Convenience name for target.
+oclwrapper: src/oclwrapper/CMakeFiles/oclwrapper.dir/rule
 
-# fast build rule for target.
-main/fast:
-	$(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
-.PHONY : main/fast
-
-#=============================================================================
-# Target rules for targets named oclrgb2gray
-
-# Build rule for target.
-oclrgb2gray: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 oclrgb2gray
-.PHONY : oclrgb2gray
-
-# fast build rule for target.
-oclrgb2gray/fast:
-	$(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/build
-.PHONY : oclrgb2gray/fast
-
-#=============================================================================
-# Target rules for targets named install_oclrgb2gray
-
-# Build rule for target.
-install_oclrgb2gray: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 install_oclrgb2gray
-.PHONY : install_oclrgb2gray
-
-# fast build rule for target.
-install_oclrgb2gray/fast:
-	$(MAKE) -f src/plugins/CMakeFiles/install_oclrgb2gray.dir/build.make src/plugins/CMakeFiles/install_oclrgb2gray.dir/build
-.PHONY : install_oclrgb2gray/fast
-
-#=============================================================================
-# Target rules for targets named oclwrapper
-
-# Build rule for target.
-oclwrapper: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 oclwrapper
 .PHONY : oclwrapper
 
 # fast build rule for target.
 oclwrapper/fast:
-	$(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/build
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/build
 .PHONY : oclwrapper/fast
+
+ocl.o: ocl.cpp.o
+
+.PHONY : ocl.o
+
+# target to build an object file
+ocl.cpp.o:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/ocl.cpp.o
+.PHONY : ocl.cpp.o
+
+ocl.i: ocl.cpp.i
+
+.PHONY : ocl.i
+
+# target to preprocess a source file
+ocl.cpp.i:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/ocl.cpp.i
+.PHONY : ocl.cpp.i
+
+ocl.s: ocl.cpp.s
+
+.PHONY : ocl.s
+
+# target to generate assembly for a file
+ocl.cpp.s:
+	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/ocl.cpp.s
+.PHONY : ocl.cpp.s
 
 # Help Target
 help:
@@ -169,11 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... main"
-	@echo "... oclrgb2gray"
-	@echo "... install_oclrgb2gray"
 	@echo "... oclwrapper"
+	@echo "... edit_cache"
+	@echo "... ocl.o"
+	@echo "... ocl.i"
+	@echo "... ocl.s"
 .PHONY : help
 
 
@@ -185,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /root/development/git/logitech/gst-plugin-example/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

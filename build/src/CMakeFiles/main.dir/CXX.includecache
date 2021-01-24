@@ -6,10 +6,34 @@
 
 #IncludeRegexTransform: 
 
+../src/./oclwrapper/ocl.h
+CL/cl2.hpp
+-
+sstream
+-
+fstream
+-
+memory
+-
+string
+-
+vector
+-
+stdexcept
+-
+map
+-
+cassert
+-
+
 /root/development/git/logitech/gst-plugin-example/src/main.cpp
 gst/gst.h
 -
 glib.h
+-
+memory
+-
+oclwrapper/ocl.h
 -
 
 /usr/include/glib-2.0/glib-object.h

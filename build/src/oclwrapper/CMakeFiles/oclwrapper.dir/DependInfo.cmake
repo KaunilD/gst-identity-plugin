@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/development/git/logitech/gst-plugin-example/src/plugins/gstidentity.cpp" "/root/development/git/logitech/gst-plugin-example/build/src/plugins/CMakeFiles/gst-identity-plugin.dir/gstidentity.cpp.o"
+  "/root/development/git/logitech/gst-plugin-example/src/oclwrapper/ocl.cpp" "/root/development/git/logitech/gst-plugin-example/build/src/oclwrapper/CMakeFiles/oclwrapper.dir/ocl.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/lib/aarch64-linux-gnu/glib-2.0/include"
   "/usr/include/libxml2"
   "/usr/include/libxml++-2.6"
-  "../src/plugins/."
+  "../src/oclwrapper/."
   )
 
 # Targets to which this target links.

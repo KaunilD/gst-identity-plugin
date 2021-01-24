@@ -181,6 +181,12 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to a file.
+OpenCL_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+OpenCL_LIBRARY:FILEPATH=/usr/lib/libOpenCL.so
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
@@ -191,13 +197,10 @@ gst-identity-example_BINARY_DIR:STATIC=/root/development/git/logitech/gst-plugin
 gst-identity-example_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin-example
 
 //Dependencies for the target
-gst-identity-plugin_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
-
-//Dependencies for the target
-gst-oclrgb2gray-plugin_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
-
-//Dependencies for the target
 oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+
+//Dependencies for the target
+oclwrapper_LIB_DEPENDS:STATIC=general;/usr/lib/libOpenCL.so;
 
 
 ########################
@@ -332,7 +335,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -373,6 +376,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding OpenCL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCL:INTERNAL=[/usr/lib/libOpenCL.so][/usr/include][v2.0()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 GSTLIBS_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/include/orc-0.4;-I/usr/include/gstreamer-1.0;-I/usr/include/glib-2.0;-I/usr/lib/aarch64-linux-gnu/glib-2.0/include
@@ -429,6 +434,16 @@ GSTLIBS_gstreamer-video-1.0_INCLUDEDIR:INTERNAL=/usr/include/gstreamer-1.0
 GSTLIBS_gstreamer-video-1.0_LIBDIR:INTERNAL=/usr/lib/aarch64-linux-gnu
 GSTLIBS_gstreamer-video-1.0_PREFIX:INTERNAL=/usr
 GSTLIBS_gstreamer-video-1.0_VERSION:INTERNAL=1.14.5
+//Have symbol CL_VERSION_2_0
+OPENCL_VERSION_2_0:INTERNAL=1
+//Have symbol CL_VERSION_2_1
+OPENCL_VERSION_2_1:INTERNAL=
+//Have symbol CL_VERSION_2_2
+OPENCL_VERSION_2_2:INTERNAL=
+//ADVANCED property for variable: OpenCL_INCLUDE_DIR
+OpenCL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCL_LIBRARY
+OpenCL_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 __pkg_config_arguments_CAIRO:INTERNAL=REQUIRED;cairo
