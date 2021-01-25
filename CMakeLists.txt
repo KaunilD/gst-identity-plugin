@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(gst-identity-example)
+project(gst-oclrgb2gray)
 
 # setup project output paths
 set(PROJECT_OUTPUT_DIR  ${PROJECT_BINARY_DIR}/${CMAKE_SYSTEM_PROCESSOR})
@@ -51,4 +51,4 @@ include_directories(
 
 add_subdirectory("src/")
 add_subdirectory("src/plugins/")
-#add_subdirectory("src/oclwrapper/")
+add_subdirectory("src/logicl/")

@@ -6,12 +6,38 @@
 
 #IncludeRegexTransform: 
 
+../src/./logicl/logicl.h
+CL/cl2.hpp
+-
+iostream
+-
+sstream
+-
+fstream
+-
+memory
+-
+string
+-
+vector
+-
+stdexcept
+-
+map
+-
+cassert
+-
+
 /root/development/git/logitech/gst-plugin-example/src/main.cpp
 gst/gst.h
 -
 glib.h
 -
 memory
+-
+string
+-
+logicl/logicl.h
 -
 
 /usr/include/glib-2.0/glib-object.h

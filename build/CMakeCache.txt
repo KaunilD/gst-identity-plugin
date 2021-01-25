@@ -130,7 +130,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=gst-identity-example
+CMAKE_PROJECT_NAME:STATIC=gst-oclrgb2gray
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -191,13 +191,22 @@ OpenCL_LIBRARY:FILEPATH=/usr/lib/libOpenCL.so
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Value Computed by CMake
-gst-identity-example_BINARY_DIR:STATIC=/root/development/git/logitech/gst-plugin-example/build
+gst-oclrgb2gray-example_BINARY_DIR:STATIC=/root/development/git/logitech/gst-plugin-example/build
 
 //Value Computed by CMake
-gst-identity-example_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin-example
+gst-oclrgb2gray-example_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin-example
+
+//Value Computed by CMake
+gst-oclrgb2gray_BINARY_DIR:STATIC=/root/development/git/logitech/gst-plugin-example/build
+
+//Value Computed by CMake
+gst-oclrgb2gray_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin-example
 
 //Dependencies for the target
-oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;general;/usr/lib/libOpenCL.so;
+oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+
+//Dependencies for the target
+opencl_wrapper_LIB_DEPENDS:STATIC=general;/usr/lib/libOpenCL.so;
 
 
 ########################
@@ -332,7 +341,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

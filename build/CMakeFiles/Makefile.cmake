@@ -12,6 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "../src/CMakeLists.txt"
+  "../src/logicl/CMakeLists.txt"
   "../src/plugins/CMakeLists.txt"
   "/usr/share/cmake-3.10/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
@@ -48,6 +49,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/plugins/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/logicl/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -55,4 +57,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/main.dir/DependInfo.cmake"
   "src/plugins/CMakeFiles/oclrgb2gray.dir/DependInfo.cmake"
   "src/plugins/CMakeFiles/install_oclrgb2gray.dir/DependInfo.cmake"
+  "src/logicl/CMakeFiles/opencl_wrapper.dir/DependInfo.cmake"
   )

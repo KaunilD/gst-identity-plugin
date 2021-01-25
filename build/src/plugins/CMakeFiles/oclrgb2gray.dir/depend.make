@@ -3,7 +3,6 @@
 
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: ../src/plugins/gstoclrgb2gray.cpp
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: ../src/plugins/gstoclrgb2gray.h
-src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: ../src/plugins/ocl.h
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/include/glib-2.0/glib-object.h
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/include/glib-2.0/glib.h
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/include/glib-2.0/glib/deprecated/gallocator.h
@@ -176,7 +175,4 @@ src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/include/gstrea
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/include/gstreamer-1.0/gst/gstvalue.h
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/include/gstreamer-1.0/gst/gstversion.h
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o: /usr/lib/aarch64-linux-gnu/glib-2.0/include/glibconfig.h
-
-src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.o: ../src/plugins/./ocl.h
-src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.o: ../src/plugins/ocl.cpp
 

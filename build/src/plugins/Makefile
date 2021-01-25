@@ -167,33 +167,6 @@ gstoclrgb2gray.cpp.s:
 	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.s
 .PHONY : gstoclrgb2gray.cpp.s
 
-ocl.o: ocl.cpp.o
-
-.PHONY : ocl.o
-
-# target to build an object file
-ocl.cpp.o:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.o
-.PHONY : ocl.cpp.o
-
-ocl.i: ocl.cpp.i
-
-.PHONY : ocl.i
-
-# target to preprocess a source file
-ocl.cpp.i:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.i
-.PHONY : ocl.cpp.i
-
-ocl.s: ocl.cpp.s
-
-.PHONY : ocl.s
-
-# target to generate assembly for a file
-ocl.cpp.s:
-	cd /root/development/git/logitech/gst-plugin-example/build && $(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.s
-.PHONY : ocl.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -207,9 +180,6 @@ help:
 	@echo "... gstoclrgb2gray.o"
 	@echo "... gstoclrgb2gray.i"
 	@echo "... gstoclrgb2gray.s"
-	@echo "... ocl.o"
-	@echo "... ocl.i"
-	@echo "... ocl.s"
 .PHONY : help
 
 

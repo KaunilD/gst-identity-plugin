@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../aarch64/lib/libopencl_wrapper.a  CMakeFiles/opencl_wrapper.dir/logicl.cpp.o
+/usr/bin/ranlib ../../aarch64/lib/libopencl_wrapper.a

@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o"
-  "CMakeFiles/oclrgb2gray.dir/ocl.cpp.o"
   "../../aarch64/lib/liboclrgb2gray.pdb"
   "../../aarch64/lib/liboclrgb2gray.so"
 )

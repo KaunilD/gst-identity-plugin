@@ -2,6 +2,10 @@
 #include <glib.h>
 
 #include <memory>
+#include <string>
+#include <logicl/logicl.h>
+
+
 
 static gboolean bus_callback(GstBus *bus, GstMessage *msg, gpointer data)
 {
@@ -22,10 +26,17 @@ static gboolean bus_callback(GstBus *bus, GstMessage *msg, gpointer data)
     return TRUE;
 }
 
+std::unique_ptr<LogiCL> build_ocl_program(){
+    std::string path("/root/development/git/logitech/gst-plugin-example/src/logicl/kernels/rgb2gray.cl");
+    auto ocl = std::unique_ptr<LogiCL>(new LogiCL(path));
+    return std::move(ocl);
+}
 
 int main(int argc, char *argv[])
 {
-    
+    std::unique_ptr<LogiCL> logi_cl = std::unique_ptr<LogiCL>(build_ocl_program());
+    std::cout << logi_cl->build_program();
+
     GMainLoop *loop;
     GstElement *pipeline, *source, *framefilter, *ocl_filter, *sink;
     GstBus *bus;

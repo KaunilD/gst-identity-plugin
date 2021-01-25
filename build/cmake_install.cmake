@@ -41,6 +41,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/root/development/git/logitech/gst-plugin-example/build/src/cmake_install.cmake")
   include("/root/development/git/logitech/gst-plugin-example/build/src/plugins/cmake_install.cmake")
+  include("/root/development/git/logitech/gst-plugin-example/build/src/logicl/cmake_install.cmake")
 
 endif()
 

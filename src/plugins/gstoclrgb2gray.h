@@ -49,7 +49,6 @@
 
 #include <gst/gst.h>
 #include <stdio.h>
-#include "ocl.h"
 
 G_BEGIN_DECLS
 
@@ -68,7 +67,6 @@ struct _GstoclRGB2GRAY
 
   // PROPS
   gboolean silent;
-  cl::Program program;
 };
 
 G_END_DECLS

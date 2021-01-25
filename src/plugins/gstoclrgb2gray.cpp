@@ -111,41 +111,7 @@ static GstFlowReturn gst_ocl_rgb2gray_chain (GstPad * pad,
     GstObject * parent, GstBuffer * buf);
 
 #define MAX_BUFFER 4718592
-//  read file to string
-std::string convertToString(const char *filename) {
-    using std::fstream;
-    std::string str;
-    char* filestr;
-    fstream f(filename, (fstream::in | fstream::binary));
-    if (f.is_open()) {
-        size_t len;
-        f.seekg(0, fstream::end);
-        len = (size_t)f.tellg();
-        f.seekg(0, fstream::beg);
-        filestr = (char *) malloc(len + 1);
-        f.read(filestr, len);
-        filestr[len] = '\0';
-        str = filestr;
-        free(filestr);
-        f.close();
-        return str;
-    }
-    std::cout << "open file filed" << std::endl;
-    return str;
-}
 
-
-static cl::Platform platform = OCL::get_platforms();
-static cl::Device device = OCL::get_device(platform);
-static cl::Context context = OCL::get_context(device);
-static std::string kernel_code = convertToString(
-    "/root/development/git/logitech/gst-plugin-example/src/plugins/rgb2gray.cl");
-  
-static cl::Program program = OCL::get_program(kernel_code, context, device);
-
-static cl::Buffer src_buffer(context, CL_MEM_READ_WRITE, sizeof(char) * MAX_BUFFER);
-static cl::Buffer dst_buffer(context, CL_MEM_READ_WRITE, sizeof(char) * MAX_BUFFER);
-static cl::CommandQueue queue(context, device);
 /* GObject vmethod implementations */
 
 /* initialize the oclrgb2gray's class */
@@ -279,12 +245,23 @@ gst_ocl_rgb2gray_chain (GstPad * pad, GstObject * parent, GstBuffer * buf)
   if (filter->silent == TRUE)
     g_print ("I'm plugged, therefore I'm in.\n");
 
+  /*
+
   GstMapInfo src_map;
   char h_dst[MAX_BUFFER];
   char d_dst[MAX_BUFFER];
   
   if (gst_buffer_map (buf, &src_map, GST_MAP_READ)) {
+    cl::Program program = OCL::get_program(file);
     
+    auto context = program.getInfo<CL_PROGRAM_CONTEXT>();
+    auto devices = context.getInfo<CL_CONTEXT_DEVICES>();
+    auto& device = devices.front();
+
+    static cl::Buffer src_buffer(context, CL_MEM_READ_WRITE, sizeof(char) * MAX_BUFFER);
+    static cl::Buffer dst_buffer(context, CL_MEM_READ_WRITE, sizeof(char) * MAX_BUFFER);
+    static cl::CommandQueue queue(context, device);
+
     cl::Kernel h_grayscale = cl::Kernel(program, "d_rgb2gray");
     queue.enqueueWriteBuffer(src_buffer, CL_TRUE, 0, sizeof(char)*MAX_BUFFER, src_map.data);
     h_grayscale.setArg(0, 640);
@@ -300,7 +277,8 @@ gst_ocl_rgb2gray_chain (GstPad * pad, GstObject * parent, GstBuffer * buf)
     gst_buffer_fill(buf, 0, h_dst, MAX_BUFFER);
     gst_buffer_unmap(buf, &src_map);
   } 
-  /* just push out the incoming buffer without touching it */
+  */
+  
   return gst_pad_push (filter->srcpad, buf);
 }
 

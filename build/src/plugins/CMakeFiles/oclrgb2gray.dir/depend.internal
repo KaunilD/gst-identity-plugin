@@ -4,7 +4,6 @@
 src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o
  /root/development/git/logitech/gst-plugin-example/src/plugins/gstoclrgb2gray.cpp
  /root/development/git/logitech/gst-plugin-example/src/plugins/gstoclrgb2gray.h
- /root/development/git/logitech/gst-plugin-example/src/plugins/ocl.h
  /usr/include/glib-2.0/glib-object.h
  /usr/include/glib-2.0/glib.h
  /usr/include/glib-2.0/glib/deprecated/gallocator.h
@@ -177,6 +176,3 @@ src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o
  /usr/include/gstreamer-1.0/gst/gstvalue.h
  /usr/include/gstreamer-1.0/gst/gstversion.h
  /usr/lib/aarch64-linux-gnu/glib-2.0/include/glibconfig.h
-src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.o
- ../src/plugins/./ocl.h
- /root/development/git/logitech/gst-plugin-example/src/plugins/ocl.cpp

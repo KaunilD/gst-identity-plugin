@@ -1,23 +1,20 @@
-set(SRCS_IDENTITY
+set(SRCS_RGB2GRAY
     "./gstoclrgb2gray.cpp"
-    "./ocl.cpp"
 )
-set(HEADERS_IDENTITY
+set(HEADERS_RGB2GRAY
     "./gstoclrgb2gray.h"
-    "ocl.h"
 )
 
-add_library(oclrgb2gray SHARED ${SRCS_IDENTITY} ${HEADERS_IDENTITY})
+add_library(oclrgb2gray SHARED ${SRCS_RGB2GRAY} ${HEADERS_RGB2GRAY})
 
 target_link_libraries(oclrgb2gray
-  ${GSTLIBS_LIBRARIES} ${OpenCL_LIBRARY}
+  ${GSTLIBS_LIBRARIES}
 )
 
 target_include_directories(oclrgb2gray
   PUBLIC
   .
   ${GSTLIBS_LIBRARY_DIRS}
-  ${OpenCL_INCLUDE_DIRS}
 )
 
 add_custom_target(install_oclrgb2gray ALL

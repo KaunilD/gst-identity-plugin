@@ -7,3 +7,6 @@
 /root/development/git/logitech/gst-plugin-example/build/src/plugins/CMakeFiles/edit_cache.dir
 /root/development/git/logitech/gst-plugin-example/build/src/plugins/CMakeFiles/oclrgb2gray.dir
 /root/development/git/logitech/gst-plugin-example/build/src/plugins/CMakeFiles/install_oclrgb2gray.dir
+/root/development/git/logitech/gst-plugin-example/build/src/logicl/CMakeFiles/rebuild_cache.dir
+/root/development/git/logitech/gst-plugin-example/build/src/logicl/CMakeFiles/opencl_wrapper.dir
+/root/development/git/logitech/gst-plugin-example/build/src/logicl/CMakeFiles/edit_cache.dir

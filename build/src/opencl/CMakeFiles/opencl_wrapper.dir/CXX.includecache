@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/opencl/./logicl.h
+CL/cl2.hpp
+-
+iostream
+-
+sstream
+-
+fstream
+-
+memory
+-
+string
+-
+vector
+-
+stdexcept
+-
+map
+-
+cassert
+-
+
+/root/development/git/logitech/gst-plugin-example/src/opencl/logicl.cpp
+logicl.h
+-
+
