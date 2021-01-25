@@ -110,7 +110,7 @@ static gboolean gst_ocl_rgb2gray_sink_event (GstPad * pad,
 static GstFlowReturn gst_ocl_rgb2gray_chain (GstPad * pad,
     GstObject * parent, GstBuffer * buf);
 
-
+#define MAX_BUFFER 4718592
 //  read file to string
 std::string convertToString(const char *filename) {
     using std::fstream;
@@ -135,7 +135,17 @@ std::string convertToString(const char *filename) {
 }
 
 
+static cl::Platform platform = OCL::get_platforms();
+static cl::Device device = OCL::get_device(platform);
+static cl::Context context = OCL::get_context(device);
+static std::string kernel_code = convertToString(
+    "/root/development/git/logitech/gst-plugin-example/src/plugins/rgb2gray.cl");
+  
+static cl::Program program = OCL::get_program(kernel_code, context, device);
 
+static cl::Buffer src_buffer(context, CL_MEM_READ_WRITE, sizeof(char) * MAX_BUFFER);
+static cl::Buffer dst_buffer(context, CL_MEM_READ_WRITE, sizeof(char) * MAX_BUFFER);
+static cl::CommandQueue queue(context, device);
 /* GObject vmethod implementations */
 
 /* initialize the oclrgb2gray's class */
@@ -188,14 +198,6 @@ gst_ocl_rgb2gray_init (GstoclRGB2GRAY * filter)
 
   filter->silent = FALSE;
 
-  cl::Platform platform = OCL::get_platforms();
-  cl::Device device = OCL::get_device(platform);
-  cl::Context context = OCL::get_context(device);
-  
-  std::string kernel_code = convertToString(
-    "/root/development/git/logitech/gst-plugin-example/src/plugins/rgb2gray.cl");
-  
-  filter->program = OCL::get_program(kernel_code, context, device);
 }
 
 static void
@@ -274,9 +276,30 @@ gst_ocl_rgb2gray_chain (GstPad * pad, GstObject * parent, GstBuffer * buf)
 
   filter = GST_OCLRGB2GRAY (parent);
 
-  if (filter->silent == FALSE)
+  if (filter->silent == TRUE)
     g_print ("I'm plugged, therefore I'm in.\n");
+
+  GstMapInfo src_map;
+  char h_dst[MAX_BUFFER];
+  char d_dst[MAX_BUFFER];
   
+  if (gst_buffer_map (buf, &src_map, GST_MAP_READ)) {
+    
+    cl::Kernel h_grayscale = cl::Kernel(program, "d_rgb2gray");
+    queue.enqueueWriteBuffer(src_buffer, CL_TRUE, 0, sizeof(char)*MAX_BUFFER, src_map.data);
+    h_grayscale.setArg(0, 640);
+    h_grayscale.setArg(1, 480);
+    h_grayscale.setArg(2, 3);
+    h_grayscale.setArg(3, src_buffer);
+    h_grayscale.setArg(4, dst_buffer);
+    
+    queue.enqueueNDRangeKernel(h_grayscale, cl::NullRange, cl::NDRange(MAX_BUFFER), cl::NullRange);
+    queue.finish();
+    queue.enqueueReadBuffer(dst_buffer, CL_TRUE, 0, MAX_BUFFER, h_dst);
+
+    gst_buffer_fill(buf, 0, h_dst, MAX_BUFFER);
+    gst_buffer_unmap(buf, &src_map);
+  } 
   /* just push out the incoming buffer without touching it */
   return gst_pad_push (filter->srcpad, buf);
 }

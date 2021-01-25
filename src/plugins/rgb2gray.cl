@@ -1,21 +1,12 @@
-__kernel void matrix_mult(
-    const int Ndim,
-    const int Mdim,
-    const int Pdim,
-    __global const float* A,
-    __global const float* B,
-    __global float* C)
+__kernel void d_rgb2gray(
+    const int W,
+    const int H,
+    const int C,
+    __global const char* src,
+    __global char* dst)
 {
     int i = get_global_id(0);
     int j = get_global_id(1);
 
-    int k;
-    float tmp;
-
-    if ((i < Ndim) && (j < Mdim)) {
-        tmp = 0.0;
-        for (k = 0; k < Pdim; k++)
-            tmp += A[i*Pdim + k] * B[k*Mdim + j];
-        C[i*Mdim + j] = tmp;
-    }
+    dst[j*W + i] = 0.5*src[j*W + i] + 0.2*src[j*W + i + 1] + 0.8*src[j*W + i+ 2]; 
 }

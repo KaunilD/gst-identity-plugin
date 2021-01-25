@@ -29,9 +29,10 @@ OCL::get_device(cl::Platform& platform){
                 exit(1);
         }
         
-        cl::Device default_device = all_devices.front();
+        cl::Device default_device = all_devices[0];
         std::cout<< "Using device: "<< default_device.getInfo<CL_DEVICE_NAME>() <<"\n";
         
+        return default_device;
 }
 
 cl::Context
@@ -42,13 +43,10 @@ OCL::get_context(cl::Device& device){
 
 cl::Program
 OCL::get_program(std::string& source, cl::Context& context, cl::Device& device){
-
+        
         cl::Program::Sources sources;
-        sources.push_back({
-                source.c_str(), 
-                source.length()+1
-        });
-
+        sources.push_back({source.c_str(), source.length()});
+        
         cl::Program program(context, sources);
 
         cl_int status = program.build({device});
