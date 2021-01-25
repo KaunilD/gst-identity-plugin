@@ -1,22 +1,22 @@
 Determining if the CL_VERSION_2_2 exist failed with the following output:
 Change Dir: /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_003d0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_003d0.dir/build.make CMakeFiles/cmTC_003d0.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_45ea6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_45ea6.dir/build.make CMakeFiles/cmTC_45ea6.dir/build
 make[1]: Entering directory '/root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_003d0.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_003d0.dir/CheckSymbolExists.c.o   -c /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Building C object CMakeFiles/cmTC_45ea6.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_45ea6.dir/CheckSymbolExists.c.o   -c /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
 /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
 /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘CL_VERSION_2_2’ undeclared (first use in this function); did you mean ‘CL_VERSION_1_2’?
    return ((int*)(&CL_VERSION_2_2))[argc];
                    ^~~~~~~~~~~~~~
                    CL_VERSION_1_2
 /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
-CMakeFiles/cmTC_003d0.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_003d0.dir/CheckSymbolExists.c.o' failed
-make[1]: *** [CMakeFiles/cmTC_003d0.dir/CheckSymbolExists.c.o] Error 1
+CMakeFiles/cmTC_45ea6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_45ea6.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_45ea6.dir/CheckSymbolExists.c.o] Error 1
 make[1]: Leaving directory '/root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_003d0/fast' failed
-make: *** [cmTC_003d0/fast] Error 2
+Makefile:126: recipe for target 'cmTC_45ea6/fast' failed
+make: *** [cmTC_45ea6/fast] Error 2
 
 File /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,22 +36,22 @@ int main(int argc, char** argv)
 Determining if the CL_VERSION_2_1 exist failed with the following output:
 Change Dir: /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_be076/fast"
-/usr/bin/make -f CMakeFiles/cmTC_be076.dir/build.make CMakeFiles/cmTC_be076.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_8b2b3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8b2b3.dir/build.make CMakeFiles/cmTC_8b2b3.dir/build
 make[1]: Entering directory '/root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_be076.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_be076.dir/CheckSymbolExists.c.o   -c /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Building C object CMakeFiles/cmTC_8b2b3.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_8b2b3.dir/CheckSymbolExists.c.o   -c /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
 /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
 /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘CL_VERSION_2_1’ undeclared (first use in this function); did you mean ‘CL_VERSION_1_1’?
    return ((int*)(&CL_VERSION_2_1))[argc];
                    ^~~~~~~~~~~~~~
                    CL_VERSION_1_1
 /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
-CMakeFiles/cmTC_be076.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_be076.dir/CheckSymbolExists.c.o' failed
-make[1]: *** [CMakeFiles/cmTC_be076.dir/CheckSymbolExists.c.o] Error 1
+CMakeFiles/cmTC_8b2b3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8b2b3.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_8b2b3.dir/CheckSymbolExists.c.o] Error 1
 make[1]: Leaving directory '/root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_be076/fast' failed
-make: *** [cmTC_be076/fast] Error 2
+Makefile:126: recipe for target 'cmTC_8b2b3/fast' failed
+make: *** [cmTC_8b2b3/fast] Error 2
 
 File /root/development/git/logitech/gst-plugin-example/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */

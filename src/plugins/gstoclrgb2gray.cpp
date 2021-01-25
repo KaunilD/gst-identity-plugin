@@ -110,6 +110,32 @@ static gboolean gst_ocl_rgb2gray_sink_event (GstPad * pad,
 static GstFlowReturn gst_ocl_rgb2gray_chain (GstPad * pad,
     GstObject * parent, GstBuffer * buf);
 
+
+//  read file to string
+std::string convertToString(const char *filename) {
+    using std::fstream;
+    std::string str;
+    char* filestr;
+    fstream f(filename, (fstream::in | fstream::binary));
+    if (f.is_open()) {
+        size_t len;
+        f.seekg(0, fstream::end);
+        len = (size_t)f.tellg();
+        f.seekg(0, fstream::beg);
+        filestr = (char *) malloc(len + 1);
+        f.read(filestr, len);
+        filestr[len] = '\0';
+        str = filestr;
+        free(filestr);
+        f.close();
+        return str;
+    }
+    std::cout << "open file filed" << std::endl;
+    return str;
+}
+
+
+
 /* GObject vmethod implementations */
 
 /* initialize the oclrgb2gray's class */
@@ -161,6 +187,15 @@ gst_ocl_rgb2gray_init (GstoclRGB2GRAY * filter)
   gst_element_add_pad (GST_ELEMENT (filter), filter->srcpad);
 
   filter->silent = FALSE;
+
+  cl::Platform platform = OCL::get_platforms();
+  cl::Device device = OCL::get_device(platform);
+  cl::Context context = OCL::get_context(device);
+  
+  std::string kernel_code = convertToString(
+    "/root/development/git/logitech/gst-plugin-example/src/plugins/rgb2gray.cl");
+  
+  filter->program = OCL::get_program(kernel_code, context, device);
 }
 
 static void

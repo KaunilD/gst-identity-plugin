@@ -197,10 +197,7 @@ gst-identity-example_BINARY_DIR:STATIC=/root/development/git/logitech/gst-plugin
 gst-identity-example_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin-example
 
 //Dependencies for the target
-oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
-
-//Dependencies for the target
-oclwrapper_LIB_DEPENDS:STATIC=general;/usr/lib/libOpenCL.so;
+oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;general;/usr/lib/libOpenCL.so;
 
 
 ########################
@@ -335,7 +332,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

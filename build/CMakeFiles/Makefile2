@@ -81,7 +81,7 @@ src/preinstall:
 # Target rules for target src/CMakeFiles/main.dir
 
 # All Build rule for target.
-src/CMakeFiles/main.dir/all: src/oclwrapper/CMakeFiles/oclwrapper.dir/all
+src/CMakeFiles/main.dir/all:
 	$(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/depend
 	$(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/development/git/logitech/gst-plugin-example/build/CMakeFiles --progress-num=1,2 "Built target main"
@@ -94,7 +94,7 @@ all: src/CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/main.dir/rule
@@ -141,7 +141,7 @@ src/plugins/preinstall:
 src/plugins/CMakeFiles/oclrgb2gray.dir/all:
 	$(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/depend
 	$(MAKE) -f src/plugins/CMakeFiles/oclrgb2gray.dir/build.make src/plugins/CMakeFiles/oclrgb2gray.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/development/git/logitech/gst-plugin-example/build/CMakeFiles --progress-num=3,4 "Built target oclrgb2gray"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/development/git/logitech/gst-plugin-example/build/CMakeFiles --progress-num=3,4,5 "Built target oclrgb2gray"
 .PHONY : src/plugins/CMakeFiles/oclrgb2gray.dir/all
 
 # Include target in all.
@@ -151,7 +151,7 @@ all: src/plugins/CMakeFiles/oclrgb2gray.dir/all
 
 # Build rule for subdir invocation for target.
 src/plugins/CMakeFiles/oclrgb2gray.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 src/plugins/CMakeFiles/oclrgb2gray.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 0
 .PHONY : src/plugins/CMakeFiles/oclrgb2gray.dir/rule
@@ -188,7 +188,7 @@ all: src/plugins/CMakeFiles/install_oclrgb2gray.dir/all
 
 # Build rule for subdir invocation for target.
 src/plugins/CMakeFiles/install_oclrgb2gray.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 src/plugins/CMakeFiles/install_oclrgb2gray.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 0
 .PHONY : src/plugins/CMakeFiles/install_oclrgb2gray.dir/rule
@@ -205,61 +205,6 @@ src/plugins/CMakeFiles/install_oclrgb2gray.dir/clean:
 
 # clean rule for target.
 clean: src/plugins/CMakeFiles/install_oclrgb2gray.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory src/oclwrapper
-
-# Convenience name for "all" pass in the directory.
-src/oclwrapper/all: src/oclwrapper/CMakeFiles/oclwrapper.dir/all
-
-.PHONY : src/oclwrapper/all
-
-# Convenience name for "clean" pass in the directory.
-src/oclwrapper/clean: src/oclwrapper/CMakeFiles/oclwrapper.dir/clean
-
-.PHONY : src/oclwrapper/clean
-
-# Convenience name for "preinstall" pass in the directory.
-src/oclwrapper/preinstall:
-
-.PHONY : src/oclwrapper/preinstall
-
-#=============================================================================
-# Target rules for target src/oclwrapper/CMakeFiles/oclwrapper.dir
-
-# All Build rule for target.
-src/oclwrapper/CMakeFiles/oclwrapper.dir/all:
-	$(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/depend
-	$(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/development/git/logitech/gst-plugin-example/build/CMakeFiles --progress-num=5,6 "Built target oclwrapper"
-.PHONY : src/oclwrapper/CMakeFiles/oclwrapper.dir/all
-
-# Include target in all.
-all: src/oclwrapper/CMakeFiles/oclwrapper.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-src/oclwrapper/CMakeFiles/oclwrapper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 src/oclwrapper/CMakeFiles/oclwrapper.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/development/git/logitech/gst-plugin-example/build/CMakeFiles 0
-.PHONY : src/oclwrapper/CMakeFiles/oclwrapper.dir/rule
-
-# Convenience name for target.
-oclwrapper: src/oclwrapper/CMakeFiles/oclwrapper.dir/rule
-
-.PHONY : oclwrapper
-
-# clean rule for target.
-src/oclwrapper/CMakeFiles/oclwrapper.dir/clean:
-	$(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/clean
-.PHONY : src/oclwrapper/CMakeFiles/oclwrapper.dir/clean
-
-# clean rule for target.
-clean: src/oclwrapper/CMakeFiles/oclwrapper.dir/clean
 
 .PHONY : clean
 

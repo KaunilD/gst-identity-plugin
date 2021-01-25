@@ -18,12 +18,10 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/libxml2"
   "/usr/include/libxml++-2.6"
   "../src/."
-  "../src/oclwrapper/."
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/root/development/git/logitech/gst-plugin-example/build/src/oclwrapper/CMakeFiles/oclwrapper.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

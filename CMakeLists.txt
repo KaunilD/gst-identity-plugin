@@ -51,4 +51,4 @@ include_directories(
 
 add_subdirectory("src/")
 add_subdirectory("src/plugins/")
-add_subdirectory("src/oclwrapper/")
+#add_subdirectory("src/oclwrapper/")

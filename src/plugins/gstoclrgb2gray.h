@@ -49,6 +49,8 @@
 
 #include <gst/gst.h>
 #include <stdio.h>
+#include "ocl.h"
+
 G_BEGIN_DECLS
 
 #define GST_TYPE_OCLRGB2GRAY (gst_ocl_rgb2gray_get_type())
@@ -62,10 +64,11 @@ G_DECLARE_FINAL_TYPE (GstoclRGB2GRAY, gst_ocl_rgb2gray,
 struct _GstoclRGB2GRAY
 {
   GstElement element;
-
   GstPad *sinkpad, *srcpad;
 
+  // PROPS
   gboolean silent;
+  cl::Program program;
 };
 
 G_END_DECLS

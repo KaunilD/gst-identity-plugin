@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/root/development/git/logitech/gst-plugin-example/src/plugins/gstoclrgb2gray.cpp" "/root/development/git/logitech/gst-plugin-example/build/src/plugins/CMakeFiles/oclrgb2gray.dir/gstoclrgb2gray.cpp.o"
+  "/root/development/git/logitech/gst-plugin-example/src/plugins/ocl.cpp" "/root/development/git/logitech/gst-plugin-example/build/src/plugins/CMakeFiles/oclrgb2gray.dir/ocl.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

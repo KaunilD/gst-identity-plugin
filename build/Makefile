@@ -149,19 +149,6 @@ install_oclrgb2gray/fast:
 	$(MAKE) -f src/plugins/CMakeFiles/install_oclrgb2gray.dir/build.make src/plugins/CMakeFiles/install_oclrgb2gray.dir/build
 .PHONY : install_oclrgb2gray/fast
 
-#=============================================================================
-# Target rules for targets named oclwrapper
-
-# Build rule for target.
-oclwrapper: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 oclwrapper
-.PHONY : oclwrapper
-
-# fast build rule for target.
-oclwrapper/fast:
-	$(MAKE) -f src/oclwrapper/CMakeFiles/oclwrapper.dir/build.make src/oclwrapper/CMakeFiles/oclwrapper.dir/build
-.PHONY : oclwrapper/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -173,7 +160,6 @@ help:
 	@echo "... main"
 	@echo "... oclrgb2gray"
 	@echo "... install_oclrgb2gray"
-	@echo "... oclwrapper"
 .PHONY : help
 
 
