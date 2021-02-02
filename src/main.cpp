@@ -1,105 +1,169 @@
-#include <gst/gst.h>
-#include <glib.h>
+/*
+ * main.cc
+ *
+ *  Created on: Sep 12, 2014
+ *      Author: m.kolny
+ */
 
-#include <memory>
-#include <string>
-#include <logicl/logicl.h>
+#include <gstreamermm.h>
+#include <iostream>
+#include <glibmm/main.h>
 
+using namespace Gst;
+using Glib::RefPtr;
 
+#define GSTREAMERMM_DISABLE_DEPRECATED
 
-static gboolean bus_callback(GstBus *bus, GstMessage *msg, gpointer data)
+class AllMediaPlayer
 {
-    GMainLoop *loop = (GMainLoop *)data;
+private:
+  RefPtr<Glib::MainLoop> main_loop;
+  RefPtr<Pipeline> pipeline;
 
-    int type = GST_MESSAGE_TYPE(msg);
+#ifndef GSTREAMERMM_DISABLE_DEPRECATED
+  RefPtr<FileSrc> source;
+#else
+  RefPtr<Gst::Element> source;
+#endif
+
+  RefPtr<Element> decoder;
+
+  bool on_bus_message(const RefPtr<Bus>&, const RefPtr<Message>& message);
+  void on_decoder_pad_added(const RefPtr<Pad>& pad);
+
+  void init()
+  {
+#ifndef GSTREAMERMM_DISABLE_DEPRECATED
+    source = FileSrc::create();
+#else
+    source = ElementFactory::create_element("filesrc");
+#endif
     
-    if (type == GST_MESSAGE_ERROR) {
-        gchar  *debug;
-        GError *error;
-        gst_message_parse_error(msg, &error, &debug);
-        g_free(debug);
-        g_printerr("Error: %s\n", error->message);
-        g_error_free(error);
-        g_main_loop_quit(loop);
+    decoder = ElementFactory::create_element("decodebin");
+
+    if (!decoder || !source)
+    {
+      throw std::runtime_error("One element could not be created.");
     }
 
-    return TRUE;
-}
+    pipeline->add(source)->add(decoder);
+    decoder->signal_pad_added().connect(sigc::mem_fun(*this, &AllMediaPlayer::on_decoder_pad_added));
 
-std::unique_ptr<LogiCL> build_ocl_program(){
-    std::string path("/root/development/git/logitech/gst-plugin-example/src/logicl/kernels/rgb2gray.cl");
-    auto ocl = std::unique_ptr<LogiCL>(new LogiCL(path));
-    return std::move(ocl);
-}
+    source->link(decoder);
+  }
 
-int main(int argc, char *argv[])
+public:
+  AllMediaPlayer()
+  {
+    main_loop = Glib::MainLoop::create();
+    pipeline = Pipeline::create();
+    pipeline->get_bus()->add_watch(sigc::mem_fun(*this, &AllMediaPlayer::on_bus_message));
+  }
+
+  void play_until_eos(const std::string& filename)
+  {
+    init();
+
+#ifndef GSTREAMERMM_DISABLE_DEPRECATED
+    source->property_location() = filename;
+#else
+    source->set_property("location", filename);
+#endif
+
+    pipeline->set_state(STATE_PLAYING);
+    main_loop->run();
+    pipeline->set_state(STATE_NULL);
+  }
+};
+
+bool AllMediaPlayer::on_bus_message(const RefPtr<Bus>&, const RefPtr<Message>& message)
 {
-    std::unique_ptr<LogiCL> logi_cl = std::unique_ptr<LogiCL>(build_ocl_program());
-    std::cout << logi_cl->build_program();
+  switch(message->get_message_type())
+  {
+  case Gst::MESSAGE_EOS:
+    std::cout << std::endl << "End of stream" << std::endl;
+    main_loop->quit();
+    return false;
+  case Gst::MESSAGE_ERROR:
+    std::cerr << "Error." << RefPtr<MessageError>::cast_static(message)->parse_debug() << std::endl;
+    main_loop->quit();
+    return false;
+  default:
+    break;
+  }
 
-    GMainLoop *loop;
-    GstElement *pipeline, *source, *framefilter, *ocl_filter, *sink;
-    GstBus *bus;
-    guint bus_id;
-    gint8 camera_id;
-
-    gst_init(&argc, &argv);
-
-    loop = g_main_loop_new(NULL, FALSE);
-
-    if (argc != 2) {
-        g_printerr("Usage: %s [camera id: 0|1|2|3]\n", argv[0]);
-        return -1;
-    }
-
-    camera_id = atoi(argv[1]);
-    if (camera_id < 0 || camera_id > 3) {
-        g_printerr("Usage: %s [camera id: 0|1|2|3]\n", argv[0]);
-        return -1;
-    }
-
-    pipeline    = gst_pipeline_new("video-display");
-    source      = gst_element_factory_make("qtiqmmfsrc", "qmmf-source");
-    framefilter = gst_element_factory_make("capsfilter", "frame-filter");
-    ocl_filter  = gst_element_factory_make("oclrgb2gray", "ocl-filter");
-    sink        = gst_element_factory_make("waylandsink","display");
-
-
-    if (!pipeline || !source || !framefilter || !ocl_filter || !sink) {
-        g_printerr ("Create element failed.\n");
-        return -1;
-    }
-
-    g_object_set (G_OBJECT(source), "camera", camera_id, NULL);
-
-    if (camera_id == 0) {
-        g_object_set(G_OBJECT(framefilter), "caps", 
-                            gst_caps_from_string("video/x-raw,format=NV12,framerate=30/1,width=1920,height=1080"), NULL);
-    } else {
-        g_object_set(G_OBJECT(framefilter), "caps", 
-                            gst_caps_from_string("video/x-raw,format=NV12,framerate=30/1,width=1280,height=720"), NULL);
-    }
-
-    g_object_set (G_OBJECT(sink), "x", 0, "y", 200, "width", 640, "height", 360, NULL);
-
-    bus = gst_pipeline_get_bus(GST_PIPELINE(pipeline));
-    bus_id = gst_bus_add_watch(bus, bus_callback, loop);
-    gst_object_unref(bus);
-
-    gst_bin_add_many(GST_BIN(pipeline), source, framefilter, ocl_filter, sink, NULL);
-    gst_element_link_many(source, framefilter, ocl_filter, sink, NULL);
-
-    gst_element_set_state(pipeline, GST_STATE_PLAYING);
-    g_print("Start\n");
-    g_main_loop_run(loop);
-    g_print("Stop\n");
-    gst_element_set_state(pipeline, GST_STATE_NULL);
-
-    gst_object_unref(GST_OBJECT(pipeline));
-    g_source_remove(bus_id);
-    g_main_loop_unref(loop);
-
-    gst_deinit();
-
-    return 0;
+  return true;
 }
+
+void AllMediaPlayer::on_decoder_pad_added(const RefPtr<Pad>& pad)
+{
+  Glib::ustring caps_format = pad->get_current_caps()->to_string().substr(0, 5);
+  RefPtr<Bin> parent = parent.cast_dynamic(pad->get_parent()->get_parent());
+
+  if (!parent)
+  {
+    std::cerr << "cannot get parent bin" << std::endl;
+    return;
+  }
+
+  Glib::ustring factory_name;
+
+  if (caps_format == "video")
+  {
+    factory_name = "autovideosink";
+  }
+  else if (caps_format == "audio")
+  {
+    factory_name = "autoaudiosink";
+  }
+  else
+  {
+    std::cerr << "unsupported media type: " << pad->get_current_caps()->to_string() << std::endl;
+    return;
+  }
+
+  RefPtr<Element> element = ElementFactory::create_element(factory_name);
+
+  if (!element)
+  {
+    std::cerr << "cannot create element " << factory_name << std::endl;
+    return;
+  }
+
+  try
+  {
+    parent->add(element);
+    element->set_state(STATE_PLAYING);
+    pad->link(element->get_static_pad("sink"));
+  }
+  catch (const std::runtime_error& err)
+  {
+    std::cerr << "cannot add element to a bin: " << err.what() << std::endl;
+  }
+}
+
+int main(int argc, char** argv)
+{
+  if (argc < 2)
+  {
+    std::cout << "Usage: " << argv[0] << " <multimedia filename>" << std::endl;
+    return 1;
+  }
+
+  init(argc, argv);
+  AllMediaPlayer player;
+
+  try
+  {
+    player.play_until_eos(argv[1]);
+  }
+  catch (const std::runtime_error& err)
+  {
+    std::cerr << "runtime error: " << err.what() << std::endl;
+  }
+
+  return 0;
+}
+
+
+

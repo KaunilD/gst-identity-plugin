@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/root/development/git/logitech/gst-plugin-example/build/aarch64/include -I/usr/include/gstreamer-1.0 -I/usr/lib/aarch64-linux-gnu/gstreamer-1.0/include -I/usr/include/glib-2.0 -I/usr/lib/aarch64-linux-gnu/glib-2.0/include -I/usr/include/libxml2 -I/usr/include/libxml++-2.6 -I/root/development/git/logitech/gst-plugin-example/src/. -I/root/development/git/logitech/gst-plugin-example/src/logicl/. 
+CXX_INCLUDES = -I/root/development/git/logitech/gst-plugin-example/build/aarch64/include -I/root/development/git/logitech/gst-plugin-example/src/. -I/usr/include/gstreamermm-1.0 -I/usr/lib/aarch64-linux-gnu/gstreamermm-1.0/include -I/usr/include/giomm-2.4 -I/usr/lib/aarch64-linux-gnu/giomm-2.4/include -I/usr/include/gstreamer-1.0 -I/usr/include/orc-0.4 -I/usr/include/glibmm-2.4 -I/usr/lib/aarch64-linux-gnu/glibmm-2.4/include -I/usr/include/glib-2.0 -I/usr/lib/aarch64-linux-gnu/glib-2.0/include -I/usr/include/sigc++-2.0 -I/usr/lib/aarch64-linux-gnu/sigc++-2.0/include -I/root/development/git/logitech/gst-plugin-example/src/logicl/. 
 

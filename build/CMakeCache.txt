@@ -203,7 +203,7 @@ gst-oclrgb2gray_BINARY_DIR:STATIC=/root/development/git/logitech/gst-plugin-exam
 gst-oclrgb2gray_SOURCE_DIR:STATIC=/root/development/git/logitech/gst-plugin-example
 
 //Dependencies for the target
-oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+oclrgb2gray_LIB_DEPENDS:STATIC=general;gstapp-1.0;general;gstvideo-1.0;general;gstaudio-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;general;gstreamermm-1.0;general;giomm-2.4;general;gstcheck-1.0;general;m;general;gstcontroller-1.0;general;gstnet-1.0;general;gstallocators-1.0;general;gstapp-1.0;general;gstfft-1.0;general;m;general;gstpbutils-1.0;general;gstaudio-1.0;general;gstriff-1.0;general;gstrtp-1.0;general;gstrtsp-1.0;general;gio-2.0;general;gstsdp-1.0;general;gsttag-1.0;general;gstvideo-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;glibmm-2.4;general;gobject-2.0;general;glib-2.0;general;sigc-2.0;
 
 //Dependencies for the target
 opencl_wrapper_LIB_DEPENDS:STATIC=general;/usr/lib/libOpenCL.so;
@@ -386,6 +386,44 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCL:INTERNAL=[/usr/lib/libOpenCL.so][/usr/include][v2.0()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
+GSTCPP_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamermm-1.0;-I/usr/lib/aarch64-linux-gnu/gstreamermm-1.0/include;-I/usr/include/giomm-2.4;-I/usr/lib/aarch64-linux-gnu/giomm-2.4/include;-I/usr/include/gstreamer-1.0;-I/usr/include/orc-0.4;-I/usr/include/gstreamer-1.0;-I/usr/include/glibmm-2.4;-I/usr/lib/aarch64-linux-gnu/glibmm-2.4/include;-I/usr/include/glib-2.0;-I/usr/lib/aarch64-linux-gnu/glib-2.0/include;-I/usr/include/sigc++-2.0;-I/usr/lib/aarch64-linux-gnu/sigc++-2.0/include
+GSTCPP_CFLAGS_I:INTERNAL=
+GSTCPP_CFLAGS_OTHER:INTERNAL=-pthread
+GSTCPP_FOUND:INTERNAL=1
+GSTCPP_INCLUDEDIR:INTERNAL=
+GSTCPP_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamermm-1.0;/usr/lib/aarch64-linux-gnu/gstreamermm-1.0/include;/usr/include/giomm-2.4;/usr/lib/aarch64-linux-gnu/giomm-2.4/include;/usr/include/gstreamer-1.0;/usr/include/orc-0.4;/usr/include/gstreamer-1.0;/usr/include/glibmm-2.4;/usr/lib/aarch64-linux-gnu/glibmm-2.4/include;/usr/include/glib-2.0;/usr/lib/aarch64-linux-gnu/glib-2.0/include;/usr/include/sigc++-2.0;/usr/lib/aarch64-linux-gnu/sigc++-2.0/include
+GSTCPP_LDFLAGS:INTERNAL=-lgstreamermm-1.0;-lgiomm-2.4;-lgstcheck-1.0;-lm;-lgstcontroller-1.0;-lgstnet-1.0;-lgstallocators-1.0;-lgstapp-1.0;-lgstfft-1.0;-lm;-lgstpbutils-1.0;-lgstaudio-1.0;-lgstriff-1.0;-lgstrtp-1.0;-lgstrtsp-1.0;-lgio-2.0;-lgstsdp-1.0;-lgsttag-1.0;-lgstvideo-1.0;-lgstbase-1.0;-lgstreamer-1.0;-lglibmm-2.4;-lgobject-2.0;-lglib-2.0;-lsigc-2.0
+GSTCPP_LDFLAGS_OTHER:INTERNAL=
+GSTCPP_LIBDIR:INTERNAL=
+GSTCPP_LIBRARIES:INTERNAL=gstreamermm-1.0;giomm-2.4;gstcheck-1.0;m;gstcontroller-1.0;gstnet-1.0;gstallocators-1.0;gstapp-1.0;gstfft-1.0;m;gstpbutils-1.0;gstaudio-1.0;gstriff-1.0;gstrtp-1.0;gstrtsp-1.0;gio-2.0;gstsdp-1.0;gsttag-1.0;gstvideo-1.0;gstbase-1.0;gstreamer-1.0;glibmm-2.4;gobject-2.0;glib-2.0;sigc-2.0
+GSTCPP_LIBRARY_DIRS:INTERNAL=
+GSTCPP_LIBS:INTERNAL=
+GSTCPP_LIBS_L:INTERNAL=
+GSTCPP_LIBS_OTHER:INTERNAL=
+GSTCPP_LIBS_PATHS:INTERNAL=
+GSTCPP_PREFIX:INTERNAL=
+GSTCPP_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamermm-1.0;-I/usr/lib/aarch64-linux-gnu/gstreamermm-1.0/include;-I/usr/include/giomm-2.4;-I/usr/lib/aarch64-linux-gnu/giomm-2.4/include;-I/usr/include/gstreamer-1.0;-I/usr/include/orc-0.4;-I/usr/include/gstreamer-1.0;-I/usr/include/glibmm-2.4;-I/usr/lib/aarch64-linux-gnu/glibmm-2.4/include;-I/usr/include/glib-2.0;-I/usr/lib/aarch64-linux-gnu/glib-2.0/include;-I/usr/include/sigc++-2.0;-I/usr/lib/aarch64-linux-gnu/sigc++-2.0/include
+GSTCPP_STATIC_CFLAGS_I:INTERNAL=
+GSTCPP_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
+GSTCPP_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamermm-1.0;/usr/lib/aarch64-linux-gnu/gstreamermm-1.0/include;/usr/include/giomm-2.4;/usr/lib/aarch64-linux-gnu/giomm-2.4/include;/usr/include/gstreamer-1.0;/usr/include/orc-0.4;/usr/include/gstreamer-1.0;/usr/include/glibmm-2.4;/usr/lib/aarch64-linux-gnu/glibmm-2.4/include;/usr/include/glib-2.0;/usr/lib/aarch64-linux-gnu/glib-2.0/include;/usr/include/sigc++-2.0;/usr/lib/aarch64-linux-gnu/sigc++-2.0/include
+GSTCPP_STATIC_LDFLAGS:INTERNAL=-lgstreamermm-1.0;-lgiomm-2.4;-lgstcheck-1.0;-lm;-lgstcontroller-1.0;-lgstnet-1.0;-lgstallocators-1.0;-lgstapp-1.0;-lgstfft-1.0;-lm;-lgstpbutils-1.0;-lgstaudio-1.0;-lgstriff-1.0;-lgstrtp-1.0;-lgstrtsp-1.0;-lgstsdp-1.0;-lgio-2.0;-lz;-lresolv;-lselinux;-lmount;-lgsttag-1.0;-lz;-lgstvideo-1.0;-lorc-0.4;-lm;-lpthread;-lgstbase-1.0;-lgstreamer-1.0;-lgmodule-2.0;-pthread;-ldl;-lglibmm-2.4;-lgobject-2.0;-lffi;-lglib-2.0;-pthread;-lpcre;-pthread;-lsigc-2.0
+GSTCPP_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+GSTCPP_STATIC_LIBDIR:INTERNAL=
+GSTCPP_STATIC_LIBRARIES:INTERNAL=gstreamermm-1.0;giomm-2.4;gstcheck-1.0;m;gstcontroller-1.0;gstnet-1.0;gstallocators-1.0;gstapp-1.0;gstfft-1.0;m;gstpbutils-1.0;gstaudio-1.0;gstriff-1.0;gstrtp-1.0;gstrtsp-1.0;gstsdp-1.0;gio-2.0;z;resolv;selinux;mount;gsttag-1.0;z;gstvideo-1.0;orc-0.4;m;pthread;gstbase-1.0;gstreamer-1.0;gmodule-2.0;dl;glibmm-2.4;gobject-2.0;ffi;glib-2.0;pcre;sigc-2.0
+GSTCPP_STATIC_LIBRARY_DIRS:INTERNAL=
+GSTCPP_STATIC_LIBS:INTERNAL=
+GSTCPP_STATIC_LIBS_L:INTERNAL=
+GSTCPP_STATIC_LIBS_OTHER:INTERNAL=
+GSTCPP_STATIC_LIBS_PATHS:INTERNAL=
+GSTCPP_VERSION:INTERNAL=
+GSTCPP_glibmm-2.4_INCLUDEDIR:INTERNAL=/usr/include
+GSTCPP_glibmm-2.4_LIBDIR:INTERNAL=/usr/lib/aarch64-linux-gnu
+GSTCPP_glibmm-2.4_PREFIX:INTERNAL=/usr
+GSTCPP_glibmm-2.4_VERSION:INTERNAL=2.56.0
+GSTCPP_gstreamermm-1.0_INCLUDEDIR:INTERNAL=/usr/include
+GSTCPP_gstreamermm-1.0_LIBDIR:INTERNAL=/usr/lib/aarch64-linux-gnu
+GSTCPP_gstreamermm-1.0_PREFIX:INTERNAL=/usr
+GSTCPP_gstreamermm-1.0_VERSION:INTERNAL=1.10.0
 GSTLIBS_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/include/orc-0.4;-I/usr/include/gstreamer-1.0;-I/usr/include/glib-2.0;-I/usr/lib/aarch64-linux-gnu/glib-2.0/include
 GSTLIBS_CFLAGS_I:INTERNAL=
 GSTLIBS_CFLAGS_OTHER:INTERNAL=-pthread
@@ -453,8 +491,10 @@ OpenCL_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 __pkg_config_arguments_CAIRO:INTERNAL=REQUIRED;cairo
+__pkg_config_arguments_GSTCPP:INTERNAL=REQUIRED;gstreamermm-1.0;glibmm-2.4
 __pkg_config_arguments_GSTLIBS:INTERNAL=REQUIRED;gobject-2.0;gstreamer-1.0>=1.14;gstreamer-base-1.0;gstreamer-app-1.0;gstreamer-video-1.0;gstreamer-audio-1.0
 __pkg_config_checked_CAIRO:INTERNAL=1
+__pkg_config_checked_GSTCPP:INTERNAL=1
 __pkg_config_checked_GSTLIBS:INTERNAL=1
 prefix_result:INTERNAL=/usr/lib/aarch64-linux-gnu
 
